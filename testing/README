@@ -1,0 +1,34 @@
+This is a feel good test. To use, after the 
+library is built, type
+make
+
+Then type
+test_cl >out
+
+edit out and search for the word 'error'. If 
+not found the test passed.
+
+If an error is found there is no easy way to 
+find out what caused it exactly. Go to where the
+error occurs in the output of test_cl (here called out)
+ and scroll up to find the test name. Review the output 
+of the test to see if it can be detemined what caused 
+the error. Edit the header file (test_name.h) associated
+with the test to find out what vsipl calls are used
+and to get a clue as to where the error may have
+accured. It could be that the error bounds are too
+small for the platform being tested. Check this first.
+
+If you are totally lost and are getting an error 
+feel free to email me with pertinent information and
+I will try to help.
+
+
+When the code is shiped this code worked without error
+on a linux workstation, and on a Sun server.
+
+Note not every function or oportunity for error is tested.
+Support functionality is tested by using it.
+
+           Randy Judd
+           judd@nosc.mil

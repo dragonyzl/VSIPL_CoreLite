@@ -1,0 +1,107 @@
+## Top Makefile for VSIP Core Lite
+## Created by RJudd October 11, 1998
+## SPAWARSYSCEN D881
+## This work is the work of a government employee as part of his official duties
+##
+CC=gcc
+INCLUDE=-I../include -I../../include/privateCL
+DEFINEP=-DVSIP_PERFORMANCE_MODE
+DEFINED=-DVSIP_DEVELOPMENT_MODE
+OPTIONS=-O2 -Wall -ansi -pedantic
+AR=ar
+AR_OPTIONS=-rcvs
+ARLIBP=libvsip_cl.a
+ARLIBD=libDvsip_cl.a
+COMPILEP=$(CC) $(DEFINEP) $(OPTIONS)
+COMPILED=$(CC) $(DEFINED) $(OPTIONS)
+performance:
+	(cd scalar/vsip_cscalar_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' obj;)
+	(cd support/init_fin; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' obj;)
+	(cd support/block/vsip_block_i; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' obj;)
+	(cd support/block/vsip_block_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' obj;)
+	(cd support/block/vsip_cblock_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' obj;)
+	(cd support/copy; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' obj;)
+	(cd support/vector/vsip_vview_i; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' obj;)
+	(cd support/vector/vsip_vview_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' obj;)
+	(cd support/vector/vsip_cvview_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' obj;)
+	(cd vector/vsip_vview_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' obj;)
+	(cd vector/vsip_cvview_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' obj;)
+	(cd vector/vsip_random; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' obj;)
+	(cd signal/vsip_fft_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' obj;)
+	(cd signal/vsip_fir_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' obj;)
+	(cd scalar/vsip_cscalar_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' arch;)
+	(cd support/init_fin; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' arch;)
+	(cd support/block/vsip_block_i; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' arch;)
+	(cd support/block/vsip_block_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' arch;)
+	(cd support/block/vsip_cblock_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' arch;)
+	(cd support/copy; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' arch;)
+	(cd support/vector/vsip_vview_i; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' arch;)
+	(cd support/vector/vsip_vview_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' arch;)
+	(cd support/vector/vsip_cvview_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' arch;)
+	(cd vector/vsip_vview_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' arch;)
+	(cd vector/vsip_cvview_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' arch;)
+	(cd vector/vsip_random; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' arch;)
+	(cd signal/vsip_fft_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' arch;)
+	(cd signal/vsip_fir_f; make COMPILE='$(COMPILEP)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBP)' arch;)
+
+development:
+	(cd scalar/vsip_cscalar_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd support/init_fin; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd support/block/vsip_block_i; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd support/block/vsip_block_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd support/block/vsip_cblock_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd support/copy; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd support/vector/vsip_vview_i; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd support/vector/vsip_vview_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd support/vector/vsip_cvview_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd vector/vsip_vview_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd vector/vsip_cvview_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd vector/vsip_random; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd signal/vsip_fft_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd signal/vsip_fir_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd error; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd support/vector/vsip_vview_i/error; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd support/vector/vsip_vview_f/error; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd support/vector/vsip_cvview_f/error; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd support/block/error; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' obj;)
+	(cd scalar/vsip_cscalar_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd support/init_fin; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd support/block/vsip_block_i; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd support/block/vsip_block_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd support/block/vsip_cblock_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd support/copy; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd support/vector/vsip_vview_i; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd support/vector/vsip_vview_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd support/vector/vsip_cvview_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd vector/vsip_vview_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd vector/vsip_cvview_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd vector/vsip_random; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd signal/vsip_fft_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd signal/vsip_fir_f; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd error; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd support/vector/vsip_vview_i/error; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd support/vector/vsip_vview_f/error; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd support/vector/vsip_cvview_f/error; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+	(cd support/block/error; make COMPILE='$(COMPILED)' AR='$(AR)' AR_OPTIONS='$(AR_OPTIONS)' ARLIB='$(ARLIBD)' arch;)
+
+clean:
+	(cd scalar/vsip_cscalar_f; make clean;)
+	(cd support/init_fin; make clean;)
+	(cd support/block/vsip_block_i; make clean;)
+	(cd support/block/vsip_block_f; make clean;)
+	(cd support/block/vsip_cblock_f; make clean;)
+	(cd support/copy; make clean;)
+	(cd support/vector/vsip_vview_i; make clean;)
+	(cd support/vector/vsip_vview_f; make clean;)
+	(cd support/vector/vsip_cvview_f; make clean;)
+	(cd signal/vsip_fft_f;make clean;)
+	(cd signal/vsip_fir_f;make clean;)
+	(cd vector/vsip_vview_f; make clean;)
+	(cd vector/vsip_cvview_f; make clean;)
+	(cd vector/vsip_random; make clean;)
+	(cd error; make clean;)
+	(cd support/vector/vsip_vview_i/error; make clean;)
+	(cd support/vector/vsip_vview_f/error; make clean;)
+	(cd support/vector/vsip_cvview_f/error; make clean;)
+	(cd support/block/error; make clean;)
+

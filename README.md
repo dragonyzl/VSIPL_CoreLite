@@ -1,0 +1,1 @@
+# VSIPL_CoreLite

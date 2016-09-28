@@ -1,0 +1,54 @@
+How to compile
+
+Step 1)
+cd to src_core_lite
+
+Step 2)
+To make a performance version use "make".
+To make a development version use "make development"
+
+Development mode is not fully supported, or compliant.
+
+NOTE:
+If you want to make both versions be sure to do a make clean between them.
+My makefile does not recognize what version .o files are available, and if
+they are already there it will use the previous make versions for the
+new library.
+
+Note that I have concentrated on the performance version, and the 
+development version is only what I inherited from the December 97
+Reference version. I have tried to keep up what is there, but have not
+done true development mode for any new code. With all the changes, I am
+not sure how much good development mode is right now.
+
+If you have not had any troubles you should be able to go to the
+CoreLiteExamples directory and make a couple of examples to see how things
+work. If your having trouble let me know.
+
+There is also a testing directory which will test do a 'feel good' test suite
+on all the number crunching functions. Support functions are tested indirectly
+by use. I make an effort to keep the implementation portable to any platform with
+an ANSI C compiler, but it is wise to test it just to make sure. Read the README
+in the test library to see how to run the test.
+
+The performance library is
+libvsip_cl
+
+The development library is
+libDvsip_cl
+
+Read the pdf file CoreLiteBook.pdf for an overview of functions,
+and an introduction. As of this release the documentation is out
+of date. The library has been updated to be compliant (we hope)
+with the final VSIPL 1.0 specification. The documentation still
+needs to be updated.
+
+See VSIPL documents on web for more details.
+
+For a (public) header file use vsip.h
+
+                  Randy Judd
+                  judd@spawar.navy.mil
+                  619 553 3086
+
+Randall Judd is a US government employee. His work on VSIPL is released to the Public (Distribution A)
